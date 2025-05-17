@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SignInButton, SignOutButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { Button } from '../components/ui/button';
+import { Button } from '../src/components/ui/button';
 import { ModeToggle } from "@/components/ui/modetoggle";
 import { Sheet } from "@/components/ui/sheet";
 export default function Home() {
