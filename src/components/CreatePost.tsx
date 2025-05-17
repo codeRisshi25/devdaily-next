@@ -7,6 +7,8 @@ import { Avatar, AvatarImage } from "./ui/avatar";
 import { Textarea } from "./ui/textarea";
 import { ImageIcon, Loader2Icon, SendIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import { createPost } from "@/actions/post.action";
+import { toast } from "sonner";
 
 function CreatePost() {
   const { user } = useUser();
@@ -16,13 +18,26 @@ function CreatePost() {
   const [showImageUpload, setShowImageUpload] = useState(false);
 
   const handleSubmit = async () => {
-    if (!content.trim() && !imageUrl) return;
-
+    if (!content.trim()) return;
     setIsPosting(true);
     try {
-        
+      const result =  await createPost(content, imageUrl);
+      if (result.sucess){
+        // reset everything
+        setContent("");
+        setImageUrl("");
+        setShowImageUpload(false);
+        toast.success("Post created successfully", {
+           description: `Posted on ${new Date().toLocaleString()}`
+        })
+        console.log("Post created")
+      }
     } catch (error) {
       console.error("Error creating post:", error);
+      toast.error("Failed to create post" , {
+         description: `${new Date().toLocaleString()}`
+      })
+
     } finally{
         setIsPosting(false);
     }
