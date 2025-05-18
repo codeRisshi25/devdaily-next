@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 import { createPost } from "@/actions/post.action";
 import {toast} from "sonner";
 import ImageUpload from "./ImageUpload";
+import {playAudio} from "@/lib/playAudio";
 
 function CreatePost() {
   const { user } = useUser();
@@ -30,6 +31,7 @@ function CreatePost() {
         setImageUrl("");
         setShowImageUpload(false);
 
+        playAudio();
         toast.success("Post created successfully");
       }
     } catch (error) {

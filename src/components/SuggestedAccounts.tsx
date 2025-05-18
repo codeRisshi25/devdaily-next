@@ -12,7 +12,7 @@ async function SuggestedAccounts() {
 
 
   return (
-    <Card className="bg-background fixed top-20">
+    <Card className="bg-background ">
       <CardHeader>
         <CardTitle>Suggested Accounts</CardTitle>
       </CardHeader>

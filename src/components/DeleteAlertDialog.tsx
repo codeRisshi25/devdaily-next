@@ -16,7 +16,7 @@ import {
 
 interface DeleteAlertDialogProps {
   isDeleting: boolean;
-  onDelete: () => Promise<void>;
+  onDelete: () => Promise<void>
   title?: string;
   description?: string;
 }
