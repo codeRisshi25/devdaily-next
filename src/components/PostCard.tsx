@@ -12,6 +12,7 @@ import { DeleteAlertDialog } from "./DeleteAlertDialog";
 import { Button } from "./ui/button";
 import { HeartIcon, LogInIcon, MessageCircleIcon, SendIcon } from "lucide-react";
 import { Textarea } from "./ui/textarea";
+import { parseTextContent } from "@/lib/text-highlighting";
 
 type Posts = Awaited<ReturnType<typeof getPosts>>;
 type Post = Posts[number];
@@ -103,7 +104,7 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
                   <DeleteAlertDialog isDeleting={isDeleting} onDelete={handleDeletePost} />
                 )}
               </div>
-              <p className="mt-2 text-sm text-foreground break-words">{post.content}</p>
+              <p className="mt-2 text-sm text-foreground break-words">{parseTextContent(post.content || '')}</p>
             </div>
           </div>
 

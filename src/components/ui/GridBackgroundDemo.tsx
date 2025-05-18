@@ -7,7 +7,7 @@ export default function GridBackgroundDemo({ children }: { children?: React.Reac
       {/* Debug border to see container boundaries */}
       <div
         className={cn(
-          "fixed inset-0 z-[-2]", // Ensure it's behind everything with z-[-2]
+          "fixed inset-0 z-[-2] h-10vh", // Ensure it's behind everything with z-[-2]
           "[background-size:50px_50px]",
           "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
           "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"

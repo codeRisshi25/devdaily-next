@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import GridBackgroundDemo from "@/components/ui/GridBackgroundDemo";
-import { Grid } from "lucide-react";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
