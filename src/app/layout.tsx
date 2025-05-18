@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { Toaster } from "@/components/ui/sonner";
+import GridBackgroundDemo from "@/components/ui/GridBackgroundDemo";
+import { Grid } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +43,7 @@ export default function RootLayout({
           >
             <div className="min-h-screen">
               <Navbar />
+
               <main className="py-8">
                 {/* container to center the content */}
                 <div className="max-w-7xl mx-auto px-4">
@@ -56,8 +59,10 @@ export default function RootLayout({
                 </div>
               </main>
             </div>
-            <Toaster className="dark:bg-white dark:text-black"/>
+            <Toaster className="dark:bg-white dark:text-black" />
+              <GridBackgroundDemo/>
           </ThemeProvider>
+
         </body>
       </html>
     </ClerkProvider>

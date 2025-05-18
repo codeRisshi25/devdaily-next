@@ -16,7 +16,7 @@ export async function createPost(content: string, image: string) {
     });
     revalidatePath("/");
     return {
-      sucess: true,
+      success: true,
       post,
     };
   } catch (err) {

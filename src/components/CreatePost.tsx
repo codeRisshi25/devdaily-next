@@ -8,7 +8,8 @@ import { Textarea } from "./ui/textarea";
 import { ImageIcon, Loader2Icon, SendIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { createPost } from "@/actions/post.action";
-import { toast } from "sonner";
+import {toast} from "sonner";
+import ImageUpload from "./ImageUpload";
 
 function CreatePost() {
   const { user } = useUser();
@@ -18,28 +19,24 @@ function CreatePost() {
   const [showImageUpload, setShowImageUpload] = useState(false);
 
   const handleSubmit = async () => {
-    if (!content.trim()) return;
+    if (!content.trim() && !imageUrl) return;
+
     setIsPosting(true);
     try {
-      const result =  await createPost(content, imageUrl);
-      if (result.sucess){
-        // reset everything
+      const result = await createPost(content, imageUrl);
+      if (result?.success) {
+        // reset the form
         setContent("");
         setImageUrl("");
         setShowImageUpload(false);
-        toast.success("Post created successfully", {
-           description: `Posted on ${new Date().toLocaleString()}`
-        })
-        console.log("Post created")
+
+        toast.success("Post created successfully");
       }
     } catch (error) {
-      console.error("Error creating post:", error);
-      toast.error("Failed to create post" , {
-         description: `${new Date().toLocaleString()}`
-      })
-
-    } finally{
-        setIsPosting(false);
+      console.error("Failed to create post:", error);
+      toast.error("Failed to create post");
+    } finally {
+      setIsPosting(false);
     }
   };
 
@@ -53,17 +50,17 @@ function CreatePost() {
             </Avatar>
             <Textarea
               placeholder="What's on your mind?"
-              className="min-h-[100px] resize-none border-none focus-visible:ring-0 p-0 dark:bg-background"
+              className="dark:bg-background min-h-[100px] resize-none border-none focus-visible:ring-0 p-0 text-base"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               disabled={isPosting}
             />
           </div>
-          {/*  
+
           {(showImageUpload || imageUrl) && (
             <div className="border rounded-lg p-4">
               <ImageUpload
-                endpoint="postImage"
+                endpoint="imageUploader"
                 value={imageUrl}
                 onChange={(url) => {
                   setImageUrl(url);
@@ -71,7 +68,7 @@ function CreatePost() {
                 }}
               />
             </div>
-          )} */}
+          )}
 
           <div className="flex items-center justify-between border-t pt-4">
             <div className="flex space-x-2">
