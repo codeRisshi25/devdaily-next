@@ -54,16 +54,9 @@ npm install
 Create a .env file in the root directory with the following variables:
 
 ```
-```
-# Database
 DATABASE_URL="postgresql://username:password@host:port/database?sslmode=require"
-
-# Clerk Auth
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-
-# UploadThing
 UPLOADTHING_TOKEN=your_uploadthing_token
-```
 ```
 
 4. **Set up the database**
