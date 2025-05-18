@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DevDaily - Social Media for Developers
+
+!DevDaily
+
+A modern, accessible social platform built specifically for developers to share updates, connect with peers, and engage with the tech community.
+
+## Features
+
+- 🔐 Secure authentication with Clerk
+- 🖼️ Image uploads with UploadThing
+- 💬 Post creation and commenting
+- ♥️ Like and save posts
+- 👤 User profiles with customizable bios
+- 👥 Follow/unfollow users
+- 🔔 Real-time notifications
+- 🌓 Dark/light mode
+- 📱 Responsive design for all devices
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Authentication**: Clerk
+- **Database**: Prisma with your preferred DB
+- **File Storage**: UploadThing
+- **Deployment**: Vercel (recommended)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.0 or later
+- A database (PostgreSQL recommended)
+- Git
+
+### Setup Instructions
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/yourusername/devdaily-next.git
+cd devdaily-next
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Set up environment variables**
+
+Create a .env file in the root directory with the following variables:
+
+```
+```
+# Database
+DATABASE_URL="postgresql://username:password@host:port/database?sslmode=require"
+
+# Clerk Auth
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+
+# UploadThing
+UPLOADTHING_TOKEN=your_uploadthing_token
+```
+```
+
+4. **Set up the database**
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+5. **Run the development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. **Open your browser**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit [http://localhost:3000](http://localhost:3000) to see the application running.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Database Schema
 
-## Learn More
+![alt text](image.png)
 
-To learn more about Next.js, take a look at the following resources:
+## Ongoing Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project is under active development with the following features planned:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### To-Do
+- [ ] Add support for hashtags and post tagging
+- [ ] Implement direct messaging
+- [ ] Add code snippet sharing with syntax highlighting
+- [ ] Create developer-specific profile fields (skills, GitHub integration)
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) for the beautiful UI components
+- [Clerk](https://clerk.dev/) for authentication
+- [UploadThing](https://uploadthing.com/) for file uploads
+- [Vercel](https://vercel.com/) for hosting recommendations
+
+---
+
+Built with ❤️ by Risshi
